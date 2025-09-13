@@ -27,7 +27,7 @@ class StudentsController extends Controller {
             'email' => $email
         );
         if ($this->StudentsModel->insert($data)) {
-           redirect(site_url('students'));
+           redirect(site_url('/'));
         }else{
             echo 'Error creating student.';
         }
@@ -53,7 +53,7 @@ class StudentsController extends Controller {
             'email' => $email
         );
         if ($this->StudentsModel->update($id, $data)) {
-           redirect(uri: site_url('students'));
+           redirect(uri: site_url('s/'));
         }else{
             echo 'Error updating student.';
         }
