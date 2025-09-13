@@ -66,7 +66,7 @@ class StudentsController extends Controller {
 
     function delete($id){
         if($this->StudentsModel->delete($id)){
-        redirect(uri: site_url('students'));
+        redirect(uri: site_url('/'));
     }else{
         echo 'Error deleting student.';
     }
