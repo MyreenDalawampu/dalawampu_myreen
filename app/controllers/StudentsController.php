@@ -27,7 +27,7 @@ class StudentsController extends Controller {
             'email' => $email
         );
         if ($this->StudentsModel->insert($data)) {
-           redirect(site_url('students/index'));
+           redirect(site_url());
         }else{
             echo 'Error creating student.';
         }
@@ -53,7 +53,7 @@ class StudentsController extends Controller {
             'email' => $email
         );
         if ($this->StudentsModel->update($id, $data)) {
-           redirect(uri: site_url('students/index'));
+           redirect(uri: site_url());
         }else{
             echo 'Error updating student.';
         }
@@ -66,7 +66,7 @@ class StudentsController extends Controller {
 
     function delete($id){
         if($this->StudentsModel->delete($id)){
-        redirect(uri: site_url('students/index'));
+        redirect(uri: site_url());
     }else{
         echo 'Error deleting student.';
     }
