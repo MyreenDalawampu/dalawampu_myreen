@@ -62,7 +62,7 @@ class StudentsController extends Controller {
 
             try {
                 $this->StudentsModel->insert($data);
-                redirect('students/index');
+                redirect();
             } catch (Exception $e) {
                 echo 'Something went wrong while creating student: ' . htmlspecialchars($e->getMessage());
             }
@@ -92,7 +92,7 @@ class StudentsController extends Controller {
 
             try {
                 $this->StudentsModel->update($id, $data);
-                redirect('students/index');
+                redirect();
             } catch (Exception $e) {
                 echo 'Something went wrong while updating student: ' . htmlspecialchars($e->getMessage());
             }
@@ -107,7 +107,7 @@ class StudentsController extends Controller {
         if ($this->io->method() === 'post') {
             try {
                 if ($this->StudentsModel->delete($id)) {
-                    redirect('students/index');
+                    redirect();
                 } else {
                     echo 'Something went wrong while deleting student.';
                 }
