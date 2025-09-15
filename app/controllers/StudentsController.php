@@ -121,7 +121,7 @@ class StudentsController extends Controller {
                 return;
             }
             $data['student'] = $student;
-            $this->call->view('students/delete', $data);
+            $this->call->view('students/index', $data);
         }
     }
 }
