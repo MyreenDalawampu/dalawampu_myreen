@@ -12,214 +12,151 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <style>
-        :root {
-            --primary-cyan: #00d4ff;
-            --secondary-purple: #8b5cf6;
-            --accent-green: #10b981;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-        }
-
         body {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
-            font-family: 'Inter', sans-serif;
-            color: var(--text-primary);
-            min-height: 100vh;
-        }
+    font-family: Arial, sans-serif;
+    background: #f5f9fc;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
 
-        .main-container {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
-        }
+.main-container {
+    background: #fff;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
 
-        .main-title {
-            font-family: 'Orbitron', monospace;
-            font-weight: 700;
-            font-size: 2rem;
-            color: var(--primary-cyan);
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
+.main-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3498db;
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        .search-input {
-            background: var(--dark-bg);
-            border: 2px solid var(--border-color);
-            color: var(--text-primary);
-            border-radius: 12px;
-            padding: 12px 16px;
-            transition: all 0.3s ease;
-            min-width: 300px;
-        }
+.search-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-right: 10px;
+}
 
-        .search-input:focus {
-            border-color: var(--primary-cyan);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
-            background: var(--dark-bg);
-            color: var(--text-primary);
-        }
+.btn-gaming, .btn-secondary-gaming {
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 
-        .search-input::placeholder {
-            color: var(--text-secondary);
-        }
+.btn-gaming:hover {
+    background: #2980b9;
+}
 
-        .btn-gaming {
-            background: linear-gradient(135deg, var(--primary-cyan), var(--secondary-purple));
-            border: none;
-            color: white;
-            font-weight: 600;
-            border-radius: 12px;
-            padding: 12px 24px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+.btn-secondary-gaming {
+    background: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
 
-        .btn-gaming:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
-            color: white;
-        }
+.btn-secondary-gaming:hover {
+    background: #3498db;
+    color: white;
+}
 
-        .btn-secondary-gaming {
-            background: transparent;
-            border: 2px solid var(--border-color);
-            color: var(--text-secondary);
-            font-weight: 600;
-            border-radius: 12px;
-            padding: 10px 20px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-        .btn-secondary-gaming:hover {
-            border-color: var(--primary-cyan);
-            color: var(--primary-cyan);
-        }
+th, td {
+    border: 1px solid #e0e0e0;
+    padding: 14px 10px;
+    text-align: center;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border-radius: 12px;
-            overflow: hidden;
-            background: var(--dark-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            text-align: center;
-        }
+th {
+    background: #3498db;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
 
-        th, td {
-            padding: 16px 12px;
-            border-bottom: 1px solid var(--border-color);
-        }
+tbody tr:nth-child(even) {
+    background: #f8f8f8;
+}
 
-        th {
-            background: var(--card-bg);
-            color: var(--primary-cyan);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            border-bottom: 2px solid var(--primary-cyan);
-        }
+tbody tr:hover {
+    background: #eef6fc;
+}
 
-        tbody tr:hover {
-            background: rgba(0, 212, 255, 0.05);
-            cursor: default;
-        }
+a.update-btn, a.delete-btn {
+    font-weight: 600;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+}
 
-        a.update-btn, a.delete-btn {
-            border-radius: 8px;
-            font-weight: 600;
-            padding: 6px 12px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
+a.update-btn {
+    background: #27ae60;
+    color: white;
+}
 
-        a.update-btn {
-            background: var(--accent-green);
-            color: white;
-        }
+a.update-btn:hover {
+    background: #1e874b;
+}
 
-        a.update-btn:hover {
-            background: #059669;
-            color: white;
-            text-decoration: none;
-        }
+a.delete-btn {
+    background: #e74c3c;
+    color: white;
+    margin-left: 6px;
+}
 
-        a.delete-btn {
-            background: #ef4444;
-            color: white;
-        }
+a.delete-btn:hover {
+    background: #c0392b;
+}
 
-        a.delete-btn:hover {
-            background: #dc2626;
-            color: white;
-            text-decoration: none;
-        }
+.no-results {
+    text-align: center;
+    color: #888;
+    padding: 40px 0;
+    font-size: 1.1rem;
+}
 
-        .no-results {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            text-align: center;
-            padding: 40px 20px;
-        }
+.pagination-gaming .page-item .page-link {
+    background: white;
+    border: 1px solid #ddd;
+    color: #3498db;
+    margin: 0 3px;
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-weight: bold;
+}
 
-        .pagination-gaming .page-item .page-link {
-            background: var(--dark-bg);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            border-radius: 8px;
-            margin: 0 2px;
-            padding: 10px 14px;
-            font-weight: 600;
-            transition: all 0.2s ease;
-        }
+.pagination-gaming .page-item.active .page-link {
+    background: #3498db;
+    color: white;
+    border-color: #3498db;
+}
 
-        .pagination-gaming .page-item .page-link:hover {
-            background: var(--primary-cyan);
-            border-color: var(--primary-cyan);
-            color: white;
-        }
+.pagination-gaming .page-item.disabled .page-link {
+    color: #ccc;
+}
 
-        .pagination-gaming .page-item.active .page-link {
-            background: var(--primary-cyan);
-            border-color: var(--primary-cyan);
-            color: white;
-        }
-
-        .pagination-gaming .page-item.disabled .page-link {
-            background: var(--card-bg);
-            border-color: var(--border-color);
-            color: var(--text-secondary);
-            opacity: 0.5;
-        }
-
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 1.5rem;
-            }
-
-            .search-input {
-                min-width: 100%;
-                margin-bottom: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
