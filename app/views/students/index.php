@@ -232,7 +232,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     </h2>
 
     <!-- Search + Add/Back -->
-    <form method="get" action="<?= site_url('students/view'); ?>" class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <form method="get" action="<?= site_url(); ?>" class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
         <div class="search-container d-flex align-items-center">
             <div class="input-group">
                 <input type="text" name="q"
@@ -246,7 +246,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         </div>
 
         <?php if (!empty($_GET['q'])): ?>
-            <a href="<?= site_url('students/view'); ?>" class="btn btn-secondary-gaming">
+            <a href="<?= site_url(); ?>" class="btn btn-secondary-gaming">
                 <i class="fas fa-arrow-left"></i> BACK TO ALL STUDENTS
             </a>
         <?php else: ?>
