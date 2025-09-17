@@ -9,25 +9,24 @@ class StudentsController extends Controller {
         $this->call->library('pagination');
     }
 
-    public function index()
+    public function index() 
     {
+        
         $page = 1;
-        if (isset($_GET['page']) && !empty($_GET['page'])) {
-            $page = (int) $this->io->get('page');
+        if(isset($_GET['page']) && ! empty($_GET['page'])) {
+            $page = $this->io->get('page');
         }
 
         $q = '';
-        if (isset($_GET['q']) && !empty($_GET['q'])) {
+        if(isset($_GET['q']) && ! empty($_GET['q'])) {
             $q = trim($this->io->get('q'));
         }
 
-        $records_per_page = 5;
+        $records_per_page = 10;
 
-        // Assuming your model has a similar pagination method like UserModel->page()
-        $all = $this->StudentsModel->page($q, $records_per_page, $page);
-        $data['students'] = $all['records'];
+        $all = $this->author_model->page($q, $records_per_page, $page);
+        $data['all'] = $all['records'];
         $total_rows = $all['total_rows'];
-
         $this->pagination->set_options([
             'first_link'     => '⏮ First',
             'last_link'      => 'Last ⏭',
@@ -35,15 +34,9 @@ class StudentsController extends Controller {
             'prev_link'      => '← Prev',
             'page_delimiter' => '&page='
         ]);
-        $this->pagination->set_theme('bootstrap');
-        $this->pagination->initialize(
-            $total_rows,
-            $records_per_page,
-            $page,
-            site_url('students/index') . '?q=' . urlencode($q)
-        );
+        $this->pagination->set_theme('bootstrap'); // or 'tailwind', or 'custom'
+        $this->pagination->initialize($total_rows, $records_per_page, $page, site_url().'?q='.$q);
         $data['page'] = $this->pagination->paginate();
-
         $this->call->view('students/index', $data);
     }
 
@@ -102,27 +95,14 @@ class StudentsController extends Controller {
         }
     }
 
-    public function delete($id)
-    {
-        if ($this->io->method() === 'post') {
-            try {
-                if ($this->StudentsModel->delete($id)) {
-                    redirect();
-                } else {
-                    echo 'Something went wrong while deleting student.';
-                }
-            } catch (Exception $e) {
-                echo 'Something went wrong while deleting student: ' . htmlspecialchars($e->getMessage());
-            }
-        } else {
-            $student = $this->StudentsModel->find($id);
-            if (!$student) {
-                echo 'Student not found.';
-                return;
-            }
-            $data['student'] = $student;
-            $this->call->view('students/index', $data);
-        }
+    function delete($id){
+        if($this->StudentsModel->delete($id)){
+        redirect(uri: site_url());
+    }else{
+        echo 'Error deleting student.';
+    }
     }
 }
 ?>
+
+
