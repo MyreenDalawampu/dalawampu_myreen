@@ -24,7 +24,7 @@ class StudentsController extends Controller {
 
         $records_per_page = 10;
 
-        $all = $this->author_model->page($q, $records_per_page, $page);
+        $all = $this->StudentsModel->page($q, $records_per_page, $page);
         $data['all'] = $all['records'];
         $total_rows = $all['total_rows'];
         $this->pagination->set_options([
@@ -40,82 +40,61 @@ class StudentsController extends Controller {
         $this->call->view('students/index', $data);
     }
 
-    public function create()
-    {
-        if ($this->io->method() === 'post') {
-            $first_name = $this->io->post('first_name');
-            $last_name = $this->io->post('last_name');
-            $email = $this->io->post('email');
+   function create(){
+        if ($this->io->method() == 'post') {
+        $firstname= $this->io->post('first_name');
+        $lastname= $this->io->post('last_name');
+        $email= $this->io->post('email');
 
-            $data = [
-                'first_name' => $first_name,
-                'last_name'  => $last_name,
-                'email'      => $email
-            ];
-
-            try {
-                $this->StudentsModel->insert($data);
-                redirect();
-            } catch (Exception $e) {
-                echo 'Something went wrong while creating student: ' . htmlspecialchars($e->getMessage());
-            }
-        } else {
-            $this->call->view('students/create');
+        $data = array(
+            'first_name' => $firstname,
+            'last_name' => $lastname,
+            'email' => $email
+        );
+        if ($this->StudentsModel->insert($data)) {
+           redirect(site_url());
+        }else{
+            echo 'Error creating student.';
         }
+    }else{
+        $this->call->view('students/create');
+    }
     }
 
-    public function update($id)
-    {
-        $student = $this->StudentsModel->find($id);
-        if (!$student) {
-            echo 'Student not found.';
-            return;
+    function update($id){
+    $students = $this->StudentsModel->find($id);
+    if(!$students) {
+        echo "Students not found.";
+        return;
+    }
+    if ($this->io->method() == 'post') {
+        $firstname= $this->io->post('first_name');
+        $lastname= $this->io->post('last_name');
+        $email= $this->io->post('email');
+
+        $data = array(
+            'first_name' => $firstname,
+            'last_name' => $lastname,
+            'email' => $email
+        );
+        if ($this->StudentsModel->update($id, $data)) {
+           redirect(uri: site_url());
+        }else{
+            echo 'Error updating student.';
         }
-
-        if ($this->io->method() === 'post') {
-            $first_name = $this->io->post('first_name');
-            $last_name = $this->io->post('last_name');
-            $email = $this->io->post('email');
-
-            $data = [
-                'first_name' => $first_name,
-                'last_name'  => $last_name,
-                'email'      => $email
-            ];
-
-            try {
-                $this->StudentsModel->update($id, $data);
-                redirect();
-            } catch (Exception $e) {
-                echo 'Something went wrong while updating student: ' . htmlspecialchars($e->getMessage());
-            }
-        } else {
-            $data['student'] = $student;
-            $this->call->view('students/update', $data);
-        }
+    }else{
+        $data['student'] = $students;
+        $this->call->view('students/update', $data);
+    }
+   
     }
 
-    public function delete($id)
-    {
-        if ($this->io->method() === 'post') {
-            try {
-                if ($this->StudentsModel->delete($id)) {
-                    redirect();
-                } else {
-                    echo 'Something went wrong while deleting student.';
-                }
-            } catch (Exception $e) {
-                echo 'Something went wrong while deleting student: ' . htmlspecialchars($e->getMessage());
-            }
-        } else {
-            $student = $this->StudentsModel->find($id);
-            if (!$student) {
-                echo 'Student not found.';
-                return;
-            }
-            $data['student'] = $student;
-            $this->call->view('students/index', $data);
-        }
+    function delete($id){
+        if($this->StudentsModel->delete($id)){
+        redirect(uri: site_url());
+    }else{
+        echo 'Error deleting student.';
+    }
     }
 }
 ?>
