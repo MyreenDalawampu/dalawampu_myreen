@@ -13,150 +13,151 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
     <style>
         body {
-    font-family: Arial, sans-serif;
-    background: #f5f9fc;
-    margin: 0;
-    padding: 20px;
-    color: #333;
-}
+            font-family: Arial, sans-serif;
+            background: #f5f9fc;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
 
-.main-container {
-    background: #fff;
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
+        .main-container {
+            background: #fff;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
 
-.main-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #3498db;
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .main-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-.search-input {
-    width: 100%;
-    max-width: 300px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-right: 10px;
-}
+        .search-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
 
-.btn-gaming, .btn-secondary-gaming {
-    background: #3498db;
-    color: white;
-    padding: 10px 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
+        .btn-gaming, .btn-secondary-gaming {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+        }
 
-.btn-gaming:hover {
-    background: #2980b9;
-}
+        .btn-gaming:hover {
+            background: #2980b9;
+        }
 
-.btn-secondary-gaming {
-    background: transparent;
-    color: #3498db;
-    border: 2px solid #3498db;
-}
+        .btn-secondary-gaming {
+            background: transparent;
+            color: #3498db;
+            border: 2px solid #3498db;
+        }
 
-.btn-secondary-gaming:hover {
-    background: #3498db;
-    color: white;
-}
+        .btn-secondary-gaming:hover {
+            background: #3498db;
+            color: white;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-th, td {
-    border: 1px solid #e0e0e0;
-    padding: 14px 10px;
-    text-align: center;
-}
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 14px 10px;
+            text-align: center;
+        }
 
-th {
-    background: #3498db;
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
 
-tbody tr:nth-child(even) {
-    background: #f8f8f8;
-}
+        tbody tr:nth-child(even) {
+            background: #f8f8f8;
+        }
 
-tbody tr:hover {
-    background: #eef6fc;
-}
+        tbody tr:hover {
+            background: #eef6fc;
+        }
 
-a.update-btn, a.delete-btn {
-    font-weight: 600;
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    text-decoration: none;
-}
+        a.update-btn, a.delete-btn {
+            font-weight: 600;
+            padding: 6px 12px;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            text-decoration: none;
+        }
 
-a.update-btn {
-    background: #27ae60;
-    color: white;
-}
+        a.update-btn {
+            background: #27ae60;
+            color: white;
+        }
 
-a.update-btn:hover {
-    background: #1e874b;
-}
+        a.update-btn:hover {
+            background: #1e874b;
+        }
 
-a.delete-btn {
-    background: #e74c3c;
-    color: white;
-    margin-left: 6px;
-}
+        a.delete-btn {
+            background: #e74c3c;
+            color: white;
+            margin-left: 6px;
+        }
 
-a.delete-btn:hover {
-    background: #c0392b;
-}
+        a.delete-btn:hover {
+            background: #c0392b;
+        }
 
-.no-results {
-    text-align: center;
-    color: #888;
-    padding: 40px 0;
-    font-size: 1.1rem;
-}
+        .no-results {
+            text-align: center;
+            color: #888;
+            padding: 40px 0;
+            font-size: 1.1rem;
+        }
 
-.pagination-gaming .page-item .page-link {
-    background: white;
-    border: 1px solid #ddd;
-    color: #3498db;
-    margin: 0 3px;
-    border-radius: 4px;
-    padding: 8px 14px;
-    font-weight: bold;
-}
+        .pagination-gaming a {
+            background: white;
+            border: 1px solid #ddd;
+            color: #3498db;
+            margin: 0 3px;
+            border-radius: 4px;
+            padding: 8px 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-.pagination-gaming .page-item.active .page-link {
-    background: #3498db;
-    color: white;
-    border-color: #3498db;
-}
-
-.pagination-gaming .page-item.disabled .page-link {
-    color: #ccc;
-}
-
+        .pagination-gaming strong {
+            background: #3498db;
+            color: white;
+            border: 1px solid #3498db;
+            margin: 0 3px;
+            border-radius: 4px;
+            padding: 8px 14px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -169,7 +170,7 @@ a.delete-btn:hover {
     </h2>
 
     <!-- Search + Add/Back -->
-    <form method="get" action="<?= site_url(); ?>" class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+    <form method="get" action="<?= site_url('students/index'); ?>" class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
         <div class="search-container d-flex align-items-center">
             <div class="input-group">
                 <input type="text" name="q"
@@ -183,7 +184,7 @@ a.delete-btn:hover {
         </div>
 
         <?php if (!empty($_GET['q'])): ?>
-            <a href="<?= site_url(); ?>" class="btn btn-secondary-gaming">
+            <a href="<?= site_url('students/index'); ?>" class="btn btn-secondary-gaming">
                 <i class="fas fa-arrow-left"></i> BACK TO ALL STUDENTS
             </a>
         <?php else: ?>
@@ -217,7 +218,7 @@ a.delete-btn:hover {
                                 <a href="<?= site_url('students/update/'.$student['id']); ?>" class="update-btn">
                                     <i class="fas fa-edit"></i> Update
                                 </a>
-                                <a href="<?= site_url('students/delete/'.$student['id']); ?>" class="delete-btn ms-2">
+                                <a href="<?= site_url('students/delete/'.$student['id']); ?>" class="delete-btn ms-2" onclick="return confirm('Are you sure you want to delete this student?')">
                                     <i class="fas fa-trash-alt"></i> Delete
                                 </a>
                             </td>
@@ -238,11 +239,9 @@ a.delete-btn:hover {
 
     <!-- Pagination -->
     <?php if (!empty($page)): ?>
-        <nav class="mt-4">
-            <ul class="pagination pagination-gaming justify-content-center">
-                <?= $page; ?>
-            </ul>
-        </nav>
+        <div class="mt-4 d-flex justify-content-center pagination-gaming">
+            <?= $page; ?>
+        </div>
     <?php endif; ?>
 </div>
 
@@ -256,17 +255,6 @@ a.delete-btn:hover {
             });
             button.addEventListener('mouseleave', () => {
                 button.style.transform = 'translateY(0)';
-            });
-        });
-
-        // Table row hover effects
-        const rows = document.querySelectorAll('tbody tr');
-        rows.forEach(row => {
-            row.addEventListener('mouseenter', () => {
-                row.style.borderLeft = '3px solid var(--primary-cyan)';
-            });
-            row.addEventListener('mouseleave', () => {
-                row.style.borderLeft = 'none';
             });
         });
     });
