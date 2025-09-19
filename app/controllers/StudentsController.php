@@ -6,14 +6,50 @@ class StudentsController extends Controller {
     public function __construct()
     {
         parent::__construct();
+         $this->call->library('pagination'); 
     }
 
     public function index()
     {
-        $this->call->model('StudentsModel');
-        $data['students'] = $this->StudentsModel->all();
+        // Current page
+        $page = 1;
+        if (isset($_GET['page']) && !empty($_GET['page'])) {
+            $page = $this->io->get('page');
+        }
+
+        // Search query
+        $q = '';
+        if (isset($_GET['q']) && !empty($_GET['q'])) {
+            $q = trim($this->io->get('q'));
+        }
+
+        $records_per_page = 5;
+
+        
+        $all = $this->StudentsModel->page($q, $records_per_page, $page);
+        $data['users'] = $all['records'];
+        $total_rows = $all['total_rows'];
+
+        // Pagination 
+        $this->pagination->set_options([
+            'first_link'     => '⏮ First',
+            'last_link'      => 'Last ⏭',
+            'next_link'      => 'Next →',
+            'prev_link'      => '← Prev',
+            'page_delimiter' => '&page='
+        ]);
+        $this->pagination->set_theme('default');
+        $this->pagination->initialize(
+            $total_rows,
+            $records_per_page,
+            $page,
+            site_url() . '?q=' . urlencode($q)
+        );
+        $data['page'] = $this->pagination->paginate();
+
         $this->call->view('students/index', $data);
     }
+
 
     function create(){
         if ($this->io->method() == 'post') {
