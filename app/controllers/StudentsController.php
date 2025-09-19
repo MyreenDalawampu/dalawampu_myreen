@@ -27,7 +27,7 @@ class StudentsController extends Controller {
 
         
         $all = $this->StudentsModel->page($q, $records_per_page, $page);
-        $data['users'] = $all['records'];
+        $data['students'] = $all['records'];
         $total_rows = $all['total_rows'];
 
         // Pagination 
