@@ -150,7 +150,30 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         <?=$page ?? ''?>
     </div>
 </div>
+<style>
+    .pagination a, 
+.pagination strong {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
 
+.pagination a:hover {
+    background: #f1f1f1;
+}
+
+.pagination strong {
+    background: #3498db;
+    color: #fff;
+    border-color: #3498db;
+}
+
+</style>
 
 </body>
 </html>
