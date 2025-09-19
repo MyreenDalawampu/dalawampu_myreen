@@ -1,3 +1,16 @@
 body{
     background-color: azure!important;
 }
+
+ .pagination a, 
+.pagination strong {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-right: 5px; /* para may space */
+}

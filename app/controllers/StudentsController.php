@@ -31,6 +31,7 @@ class StudentsController extends Controller {
         $total_rows = $all['total_rows'];
 
         // Pagination 
+        
         $this->pagination->set_options([
             'first_link'     => '⏮ First',
             'last_link'      => 'Last ⏭',
@@ -38,6 +39,7 @@ class StudentsController extends Controller {
             'prev_link'      => '← Prev',
             'page_delimiter' => '&page='
         ]);
+       
         $this->pagination->set_theme('default');
         $this->pagination->initialize(
             $total_rows,
