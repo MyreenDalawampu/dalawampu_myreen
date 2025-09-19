@@ -1,16 +1,3 @@
 body{
     background-color: azure!important;
 }
-.pagination {
-    display: inline-flex !important;
-    gap: 4px; /* maliit na pagitan */
-    align-items: center;
-    flex-wrap: nowrap; /* huwag mag line-break */
-}
-
-.pagination a,
-.pagination strong {
-    display: inline-block !important;
-    white-space: nowrap; /* para hindi mag-break yung text gaya ng "Last ⏭" */
-}
-
