@@ -146,8 +146,11 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     </div>
     <!-- Pagination -->
   <div class="mt-4 flex justify-center">
-    <?=$page ?? ''?>
-  </div>
+    <div class="pagination flex space-x-2">
+        <?=$page ?? ''?>
+    </div>
+</div>
+
 
 </body>
 </html>
