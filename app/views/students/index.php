@@ -145,10 +145,12 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         </table>
     </div>
     <!-- Pagination -->
-  <div class="mt-4 flex justify-center">
-    <div class="pagination flex space-x-2">
-        <?=$page ?? ''?>
-    </div>
+<div class="mt-4 flex justify-center">
+  <div class="pagination flex space-x-2">
+      <?=$page ?? ''?>
+  </div>
+</div>
+
 </div>
 <style>
     .pagination a, 
@@ -161,16 +163,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     color: #333;
     text-decoration: none;
     font-size: 0.9rem;
-}
-
-.pagination a:hover {
-    background: #f1f1f1;
-}
-
-.pagination strong {
-    background: #3498db;
-    color: #fff;
-    border-color: #3498db;
+    margin-right: 5px; /* para may space */
 }
 
 </style>
