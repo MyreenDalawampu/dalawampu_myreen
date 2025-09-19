@@ -11,6 +11,15 @@ body{
     flex-wrap: nowrap;          
 }
 
+.pagination {
+    display: flex;              
+    justify-content: center;    
+    align-items: center;
+    gap: 8px;                   
+    margin: 20px 0;
+    flex-wrap: nowrap;          
+}
+
 .pagination a,
 .pagination span {
     display: inline-block;
