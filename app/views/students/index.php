@@ -10,6 +10,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     <title>Students List</title>
     <link rel="stylesheet" href="<?=base_url();?>public/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -152,19 +153,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 </div>
 
 </div>
-<style>
-    .pagination a, 
-.pagination strong {
-    display: inline-block;
-    padding: 6px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #fff;
-    color: #333;
-    text-decoration: none;
-    font-size: 0.9rem;
-    margin-right: 5px; /* para may space */
-}
+
 
 </style>
 
