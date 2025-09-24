@@ -112,7 +112,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
       placeholder="Search student..." 
       class="px-4 py-2 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 w-64">
     <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r-lg shadow transition-all duration-300">
-      <i class="fa fa-search"></i>
+      <i class="fa fa-search">🔍</i>
     </button>
   </form>
 
