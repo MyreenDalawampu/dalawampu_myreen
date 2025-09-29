@@ -16,7 +16,7 @@ class AuthController extends Controller
             }
         }
 
-        $this->call->view('/auth/register');
+        $this->call->view('auth/register');
     }
 
     public function login()
