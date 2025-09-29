@@ -59,5 +59,11 @@ class StudentsModel extends Model {
 
             return $data;
         }
+        
+    }
+
+     public function get_all()
+    {
+        return $this->db->table('students')->get_all();
     }
 }

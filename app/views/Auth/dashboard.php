@@ -1,22 +1,6 @@
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
-// ✅ Start session kung hindi pa naka-start
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// ✅ Redirect kung hindi naka-login
-if (!isset($_SESSION['user_id'])) {
-    header("Location: " . site_url('auth/login'));
-    exit;
-}
-
-// Para maiwasan notice error kung walang role
-$role = $_SESSION['role'] ?? null;
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,26 +65,6 @@ $role = $_SESSION['role'] ?? null;
             background: #f1f1f1;
         }
 
-        a.update-btn {
-            color: #3498db; 
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a.update-btn:hover {
-            text-decoration: underline;
-        }
-
-        a.delete-btn {
-            color: #e74c3c; 
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a.delete-btn:hover {
-            text-decoration: underline;
-        }
-
         .create-btn {
             display: inline-block;
             padding: 10px 20px;
@@ -136,9 +100,6 @@ $role = $_SESSION['role'] ?? null;
     <div class="container">
         <div class="header">
             <h1 class="text-4xl font-bold text-left">Students List</h1>
-            <?php if ($_SESSION['role'] === 'admin'): ?>
-            <a class="create-btn" href="<?=site_url('students/create');?>">Create Record</a>
-            <?php endif; ?>
         </div>
 
         <table>
@@ -147,10 +108,6 @@ $role = $_SESSION['role'] ?? null;
                 <th>Firstname</th>
                 <th>Lastname</th>
                 <th>Email</th>
-                <?php if ($_SESSION['role'] === 'admin'): ?>
-        <th>Action</th>
-      <?php endif; ?>
-
             </tr>
             <?php foreach(html_escape($students) as $student): ?>
                 <tr>
@@ -158,36 +115,22 @@ $role = $_SESSION['role'] ?? null;
                     <td><?= $student['first_name']; ?></td>
                     <td><?= $student['last_name']; ?></td>
                     <td><?= $student['email']; ?></td>
-                    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-
-                    <td>
-                        <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-
-                        <a class="update-btn" href="<?= site_url('students/update/'.$student['id']); ?>">Update</a> | 
-                        <a class="delete-btn" href="<?= site_url('students/delete/'.$student['id']); ?>">Delete</a>
-                        <?php endif; ?>
-                    </td>
-                    <?php endif; ?>
                 </tr>
             <?php endforeach; ?>
         </table>
-         <!-- Pagination and Logout at bottom of container -->
-<div class="mt-4 flex justify-between items-center">
-    <!-- Pagination left -->
-    <div class="pagination flex space-x-2">
-        <?=$page ?? ''?>
+        
+        <!-- Pagination and Logout at bottom of container -->
+        <div class="mt-4 flex justify-between items-center">
+            <!-- Pagination left -->
+            <div class="pagination flex space-x-2">
+                <?=$page ?? ''?>
+            </div>
+
+            <!-- Logout button right -->
+            <a class="create-btn bg-red-500 hover:bg-red-600" href="<?=site_url('auth/logout');?>">Logout</a>
+        </div>
+
     </div>
-
-    <!-- Logout button right -->
-    <a class="create-btn bg-red-500 hover:bg-red-600" href="<?=site_url('auth/logout');?>">Logout</a>
-</div>
-
-
-</div>
-<style>
-   
-
-</style>
 
 </body>
 </html>
